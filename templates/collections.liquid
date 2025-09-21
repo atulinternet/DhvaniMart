@@ -1,0 +1,20 @@
+<div class="collections-list">
+  <h1>All Collections</h1>
+  <div class="products-grid">
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+        <div class="product-card">
+          <a href="{{ collection.url }}">
+            {% if collection.image %}
+              <img src="{{ collection.image | img_url: '400x' }}" alt="{{ collection.title }}">
+            {% else %}
+              <img src="{{ 'placeholder.png' | asset_url }}" alt="{{ collection.title }}">
+            {% endif %}
+            <h4>{{ collection.title }}</h4>
+          </a>
+          <div>{{ collection.description | strip_html | truncate: 80 }}</div>
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
