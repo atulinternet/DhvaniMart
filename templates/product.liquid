@@ -1,0 +1,12 @@
+<div class="product-detail">
+  <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.title }}">
+  <div class="product-info">
+    <h1>{{ product.title }}</h1>
+    <div class="price">{{ product.price | money }}</div>
+    <div>{{ product.description }}</div>
+    <form action="/cart/add" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+      <button type="submit" class="btn">Add to Cart</button>
+    </form>
+  </div>
+</div>

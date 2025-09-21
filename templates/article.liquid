@@ -1,0 +1,12 @@
+<div class="article-detail">
+  <h1>{{ article.title }}</h1>
+  <div class="meta">By {{ article.author }}, {{ article.published_at | date: "%B %d, %Y" }}</div>
+  {% if article.image %}
+    <div class="article-image">
+      <img src="{{ article.image | img_url: '800x' }}" alt="{{ article.title }}">
+    </div>
+  {% endif %}
+  <div class="article-content">
+    {{ article.content }}
+  </div>
+</div>
